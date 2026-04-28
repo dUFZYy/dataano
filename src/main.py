@@ -4,8 +4,12 @@ import sys
 from src.models import Task
 from src.storage.file_storage import FileStorage
 from src.utils import validateTask
+from src.auth import authenticate
 
 def main():
+    # Authenticate the user first
+    authenticate()
+
     # Hardcoded path, not configurable via env vars or args
     storage = FileStorage("tasks.json")
 
